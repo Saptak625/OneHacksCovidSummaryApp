@@ -1,0 +1,64 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='extrabootstrap.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Covid Stats</title>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="homepage">Covid News HQ</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="news">News</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="covidstats">Covid Stats</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="socialstats">Social Sentiment</a></li>
+            </ul>
+        </div>
+    </nav>
+
+       <div class="container" style="padding-bottom: 30px">
+            <h2>Covid Analysis</h2>
+            <hr />
+            <div class="container">
+                <h3>Worldwide Cases</h3>
+                <hr />
+                <div style="text-align: center!important;">
+                    <img src="static\worldCases.png" alt="WorldWide Cases Image" />
+                </div>
+            </div>
+            <div class="container">
+                <h3>United States vs. Worldwide Cases and Deaths</h3>
+                <hr />
+                <div style="text-align: center!important;">
+                    <img src="static\worldvsus.png" alt="World vs US Total Cases" style="width: 120rem"/>
+                </div>
+            </div>
+            <div class="container">
+                <h3>Daily United States Cases and Deaths</h3>
+                <hr />
+                <div style="text-align: center!important;">
+                    <img src="static\usCasesAndDeaths.png" alt="Daily US Cases and Deaths" style="width: 120rem" />
+                </div>
+            </div>
+            <div class="container">
+                <h3>Predicted Covid Trend Model</h3>
+                <h4> Our Model uses linear regression to forecast an accurate prediction for the next 7 days. This utilizes a raw dataset and we are applying the linear regression algorithm on our graphs to give everyone a higher understanding of Covid trends and make better decisions. This model incorporates up-to-date data and constantly predicts the next 7 days through slicing past values and combining them (confirmed, recovered, deaths) to make an accurate prediction with a one fit all model. </h4>
+                <hr />
+                <div style="text-align: center!important;">
+                    <img src="static\predictionCovid.png" alt="ML Predicted Covid Trend" style="width: 120rem" />
+                </div>
+            </div>
+        </div>
+</body>
+</html>

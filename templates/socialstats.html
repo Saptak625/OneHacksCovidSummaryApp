@@ -1,0 +1,73 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='extrabootstrap.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Social Stats</title>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="homepage">Covid News HQ</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="news">News</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="covidstats">Covid Stats</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="socialstats">Social Sentiment</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Social Stats</h1>
+        <div class="container">
+            <h2>What people are saying?</h2>
+            <hr />
+            {% for tweet in tweets %}
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <p class="card-text">{{ tweet }}</p>
+                    <a href="https://twitter.com/V2019N?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" class="card-link">
+                        <img src="/static/twitter.png" alt="Twitter Icon" style="width: 2rem" />
+                        Twitter
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        <div class="container" style="padding-bottom: 30px">
+            <h2>Sentiment Analysis</h2>
+            <hr />
+            <div class="container">
+                <h3>Sentiment of Tweets</h3>
+                <hr />
+                <div style="text-align: center!important;">
+                    <img src="static\SentimentOfTweets.png" alt="Sentiment Of Tweets Image" />
+                </div>
+            </div>
+            <div class="container">
+                <h3>Average Sentiment of Tweets(Over 1 week)</h3>
+                <hr />
+                <div style="text-align: center!important;">
+                    <img src="static\AverageSentiment.png" alt="Average Sentiment of Tweets Image" style="width: 50rem" />
+                </div>
+            </div>
+            <div class="container">
+                <h3>What's on people's minds?</h3>
+                <hr />
+                <div style="text-align: center!important;">
+                    <img src="static\wordcloud.png" alt="Wordcloud" style="width: 50rem" />
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

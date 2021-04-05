@@ -1,0 +1,93 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='extrabootstrap.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Homepage</title>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="homepage">Covid News HQ</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="news">News</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="covidstats">Covid Stats</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="socialstats">Social Sentiment</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Homepage</h1>
+        <hr />
+         <div class="jumbotron">
+              <h1>Our Purpose</h1>
+              <hr class="my-4">
+              <p>Through creating this website, we aim to provide an 'one-stop shop' for all Covid-19 related information. We provide the latest news from multiple trusted sources(BBC and CNN), statistics on the current Covid-19 trends with our own custom ML prediction model, and sentiment and social trends based on people's thoughts throughout this everlasting pandemic. Our hope is that this site makes it simple for our customers to have the tools and sources to make informed decisions during this pandemic!</p>
+            </div>
+        <div class="container">
+            <div class="container">
+                <h2>Current News</h2>
+                <hr>
+                <div class="card-deck" style = "text-align:center">
+                    {% for newsArticle in current_news %}
+                        <div class="card" style="width: 32rem; margin-bottom: 2rem; margin-right: 2rem; align-items: flex-start!important;">
+                            <img class="card-img-top" src="{{ newsArticle[3] }}" alt="Card image cap" style="width: 32rem;">
+                            <div class="card-body">
+                                <h5 class="card-title"><b>{{ newsArticle[0] }}</b></h5>
+                                <p class="card-text">{{ newsArticle[1] }}</p>
+
+                                <a href="{{ url_for('news') }}" class="btn btn-primary">
+                                    Learn More
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="container">
+                <h2>Covid Trends</h2>
+                <hr>
+                <div class="card-deck" style = "text-align:center">
+                    {% for trend in trends %}
+                        <div class="card" style="width: 35rem; margin-bottom: 2rem; align-items: flex-start!important;">
+                            <div class="card-body">
+                                <h5 class="card-title"><b>{{ trend[0] }}</b></h5>
+                                <p class="card-text">{{ trend[1] }}</p>
+
+                                <a href="{{ url_for('covidStats') }}" class="btn btn-primary">
+                                    Learn More
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+               <div class="container" style="margin-bottom: 2rem;">
+                <h2>Social Trends</h2>
+                <hr>
+                <center>
+                <h4>Learn what's on people's minds through our social statistics analysis!</h4>
+                <div style="text-align: center!important;">
+                    <img src="static\wordcloud.png" alt="Wordcloud" style="width: 50rem; margin-bottom: 2rem" />
+                </div>
+                <a href="{{ url_for('socialStats') }}" class="btn btn-primary btn-lg">
+                    Learn More
+                </a>
+                </center>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
